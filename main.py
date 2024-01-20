@@ -2,7 +2,6 @@ from cgitb import text
 from datetime import datetime, timedelta
 from turtle import color, position
 import customtkinter
-from PIL import Image
 
 def new_year_countdown():
     current_time = datetime.now()
@@ -12,7 +11,6 @@ def new_year_countdown():
     time_remaining = str(current_time).split('.')[0] # remove seconds from time
     days_remaining = (new_year - current_time).day
 
-    total_days = int(current_time.total_seconds()) # calculate days and time left
     progress_percentage = int((days_remaining / (24 * 60 * 60)) * 100)
     days.configure(text=f"{days_remaining}")
     
@@ -40,9 +38,6 @@ days.pack(padx=5, pady=0) # apply it to the window
 days_used = customtkinter.CTkLabel(frame, text="Days Used", font=("Arial",14), text_color=("light blue")) # declare a label
 days_used.pack(padx=5, pady=5) # apply it to the window
 
-# frame.gif_image = customtkinter.CTkImage(dark_image=Image.open("clock.gif"))
-
-# call the function to see the countdown
-new_year_countdown()
+new_year_countdown() # call the function to see the countdown
 
 app.mainloop()
